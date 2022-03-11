@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace xcentium_login_application
+namespace xcentium_code_challenge
 {
     public class Program
     {

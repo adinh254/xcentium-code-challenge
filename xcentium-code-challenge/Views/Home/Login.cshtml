@@ -1,0 +1,38 @@
+﻿@model xcentium_code_challenge.Models.UserModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>XCentium Login Challenge</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(user => user.Username)</td>
+                <td>@Html.TextBoxFor(user => user.Username)</td>
+                <td>@Html.ValidationMessageFor(user => user.Username)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(user =>  user.Password)</td>
+                <td>@Html.PasswordFor(user => user.Password)</td>
+                <td>@Html.ValidationMessageFor(user => user.Password)</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Login" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+}

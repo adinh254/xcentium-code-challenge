@@ -1,0 +1,13 @@
+﻿@model xcentium_code_challenge.Models.UserModel
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<fieldset>
+    <legend>User Dashboard</legend>
+    @if (ViewBag.Username != null)
+    { 
+        <text>Welcome @(ViewBag.Username + '!')</text>
+    }
+</fieldset>

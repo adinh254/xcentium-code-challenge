@@ -1,6 +1,6 @@
 using System;
 
-namespace xcentium_login_application.Models
+namespace xcentium_code_challenge.Models
 {
     public class ErrorViewModel
     {
