@@ -4,35 +4,40 @@
     ViewBag.Title = "Login";
 }
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post))
-{
-    <fieldset>
-        <legend>XCentium Login Challenge</legend>
+<div id="login">
+    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+    {
+    <fieldset id="fieldset-login">
+        <legend id="legend-login">XCentium Login</legend>
 
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
         @if (ViewBag.Message != null)
         {
-            <div style="border: 1px solid red">
+            <div class="field-validation-error">
                 @ViewBag.Message
             </div>
         }
+        @Html.ValidationMessageFor(user => user.Username)
+        @Html.ValidationMessageFor(user => user.Password)
         <table>
-            <tr>
+            <tr class="login-field">
                 <td>@Html.LabelFor(user => user.Username)</td>
                 <td>@Html.TextBoxFor(user => user.Username)</td>
-                <td>@Html.ValidationMessageFor(user => user.Username)</td>
+                @*<td>@Html.ValidationMessageFor(user => user.Username)</td>*@
             </tr>
-            <tr>
-                <td>@Html.LabelFor(user =>  user.Password)</td>
+            <tr class="login-field">
+                <td>@Html.LabelFor(user => user.Password)</td>
                 <td>@Html.PasswordFor(user => user.Password)</td>
-                <td>@Html.ValidationMessageFor(user => user.Password)</td>
             </tr>
             <tr>
+                <td>@*  *@</td>
                 <td>
                     <input type="submit" value="Login" />
                 </td>
+                <td>@*  *@</td>
             </tr>
         </table>
     </fieldset>
-}
+    }
+</div>

@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xcentium-login-application", "xcentium-login-application\xcentium-login-application.csproj", "{F9FF5B4C-B901-4630-B09E-7133546237CF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xcentium-code-challenge", "xcentium-code-challenge\xcentium-code-challenge.csproj", "{98F884D9-0E3E-4293-8FAC-37674D484082}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "xcentium-code-challenge", "xcentium-code-challenge\xcentium-code-challenge.csproj", "{98F884D9-0E3E-4293-8FAC-37674D484082}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,10 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F9FF5B4C-B901-4630-B09E-7133546237CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9FF5B4C-B901-4630-B09E-7133546237CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9FF5B4C-B901-4630-B09E-7133546237CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9FF5B4C-B901-4630-B09E-7133546237CF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98F884D9-0E3E-4293-8FAC-37674D484082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98F884D9-0E3E-4293-8FAC-37674D484082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98F884D9-0E3E-4293-8FAC-37674D484082}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -4,10 +4,17 @@
     ViewBag.Title = "Dashboard";
 }
 
-<fieldset>
-    <legend>User Dashboard</legend>
-    @if (ViewBag.Username != null)
-    { 
-        <text>Welcome @(ViewBag.Username + '!')</text>
-    }
-</fieldset>
+<div class="hero-image">
+    <div class="hero-text">
+        <fieldset>
+            <legend>User Dashboard</legend>
+            @if (ViewBag.Name != null)
+            {
+                <p>Welcome @(ViewBag.Name + '!')</p>
+            }
+            <form asp-action="Logout" , asp-controller="Home" method="post">
+                <button type="submit" name="button">Logout</button>
+            </form>
+        </fieldset>
+    </div>
+</div>

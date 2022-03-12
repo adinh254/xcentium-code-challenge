@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using System.Globalization;
+
 using System.IO;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using xcentium_code_challenge.Models;
+using System.Diagnostics;
+using System.Globalization;
+using System.Collections.Generic;
+
 using CsvHelper;
+
+using xcentium_code_challenge.Models;
 
 namespace xcentium_code_challenge.Controllers
 {
@@ -22,6 +25,12 @@ namespace xcentium_code_challenge.Controllers
 
         public IActionResult Login()
         {
+            bool inSession = HttpContext.Session.GetString("UserId") != null && HttpContext.Session.GetString("Username") != null && HttpContext.Session.GetString("Password") != null;
+            if (inSession)
+            {
+                ViewBag.Name = HttpContext.Session.GetString("Name");
+                return View("Dashboard");
+            }
             return View();
         }
 
@@ -35,23 +44,35 @@ namespace xcentium_code_challenge.Controllers
                 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
                 {
                     IEnumerable<UserModel> userRecords = csv.GetRecords<UserModel>();
-                    UserModel foundUser = userRecords.FirstOrDefault(userRecord => userRecord.Username == user.Username);
+                    UserModel foundUser = userRecords.FirstOrDefault(
+                        userRecord => (userRecord.Username == user.Username) && (userRecord.Password == user.Password));
                     if (foundUser != null)
                     {
                         HttpContext.Session.SetString("UserId", foundUser.Id.ToString());
                         HttpContext.Session.SetString("Username", foundUser.Username.ToString());
+                        HttpContext.Session.SetString("Password", foundUser.Password.ToString());
+                        HttpContext.Session.SetString("Name", foundUser.Name.ToString());
                         return RedirectToAction("Dashboard");
                     }
+                    ViewBag.Message = "Username or Password is incorrect.";
+                    return View();
                 }
             }
             return View(user);
         }
 
-        public IActionResult Dashboard(string username)
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult Dashboard()
         {
             if (HttpContext.Session.GetString("UserId") != null)
             {
-                ViewBag.Username = HttpContext.Session.GetString("Username");
+                ViewBag.Name = HttpContext.Session.GetString("Name");
                 return View();
             }
             return RedirectToAction("Login");

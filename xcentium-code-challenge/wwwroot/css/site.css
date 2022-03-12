@@ -7,6 +7,66 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+
+.field-validation-error {
+    color: red;
+    text-align: center;
+    display: block;
+    padding-bottom: 1em;
+}
+
+#login {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+#fieldset-login {
+    border: 0.1em solid black;
+    padding: 1em;
+}
+
+#table-login {
+    margin: auto;
+}
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/stars-galaxy-astronomy-cosmos-blue-3840x2400-2461.jpg);
+    width: 100%;
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    right: -50%;
+    transform: translate(-50%, 0);
+    position: absolute;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+#legend-login {
+    display: block;
+    width: 75%;
+    max-width: 100%;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+    text-align: center;
+}
+
+.login-field {
+    padding: 1em;
+}
+
 /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
